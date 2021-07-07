@@ -1,15 +1,16 @@
 import React from 'react';
+import './FormInputServices.css';
 
-export const FormInputServices = ({label, name, value, creatingListOfServices, ...inputProps}) => {
+
+export const FormInputServices = ({label, name, creatingListOfServices, ...inputProps}) => {
 
     return (
-        <>
-            <input className='form-input__field' 
-                id={`form${name}`} 
+        <div className='form-inputserv'>
+            <input className='form-inputserv__field' 
+                id={`form${name}`}
                 onChange={creatingListOfServices}
-                value={value}
                 {...inputProps}/>
-            {label ? (<label className='form-input__label' htmlFor={`form${name}`}>{label}</label>) : null}
-        </>
+            {label ? (<label className='form-inputserv__label' htmlFor={`form${name}`}>{label}</label>) : null}
+        </div>
     )
 };

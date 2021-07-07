@@ -1,0 +1,29 @@
+.form-time-registration {
+    border: 10px solid #B11B75;
+    width: 90%;
+    max-width: 500px;
+    background: rgba(43, 49, 70, 0.7);
+    margin: 20px auto;
+    text-align: center;
+}
+
+.form-time-registration button {
+    width: 70px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    background-color: #B11B75;
+    color: white;
+    margin: 20px 10px;
+    cursor: pointer;
+    box-shadow: 4px 4px 5px rgba(0,0,0,0.8);
+}
+
+.form-time-registration button:hover {
+    background-color: #b43f85;
+}
+
+.form-time-registration button:active {
+    box-shadow: 4px 4px 5px rgba(0,0,0,0);
+}

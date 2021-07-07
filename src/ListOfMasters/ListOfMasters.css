@@ -1,0 +1,13 @@
+.wrapper-list-ofmasters {
+    /* border: 1px solid greenyellow; */
+    height: 100%;
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: auto;
+}
+
+.cearch-form {
+    width: 100%;
+}

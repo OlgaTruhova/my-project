@@ -1,0 +1,41 @@
+.wrapper-extended-master-card {
+    background: none;
+    border: 1px solid red;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+}
+
+.extended-master-card {
+    border: 1px solid blue;
+    width: 50%;
+    
+}
+
+.extended-master-card__info {
+    /* margin: 15px 0 15px 0;  */
+    border: 1px solid green;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+}
+
+.extended-master-card__img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.extended-master-card__img img {
+   width: 100%;
+   display: block;
+}
+
+.extended-master-card__text {
+    width: 70%;
+    text-align: start;
+}
+

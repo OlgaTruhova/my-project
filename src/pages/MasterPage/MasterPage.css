@@ -1,0 +1,29 @@
+.master-page {
+    border: 10px solid rgb(177, 27, 117);
+    height: 82vh;
+    display: flex;
+    padding-top: 20px;
+    justify-content: center;
+    box-shadow: 6px -6px 5px rgba(0,0,0,0.8);
+}
+
+.master-page__text {
+    width: 30%;
+    color: #ffffff;
+}
+
+.master-page__text h1 {
+    text-align: center;
+    padding: 10px;
+    font-size: 45px;
+}
+
+.master-page__text p {
+    font-size: 20px;
+    padding: 10px;
+}
+
+.master-page__registratin {
+    width: 65%;
+}
+

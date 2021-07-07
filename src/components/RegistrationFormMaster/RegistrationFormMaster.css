@@ -1,0 +1,18 @@
+.wrapper-form-registration {
+    width: 90%;
+    margin: 0 auto;
+    border: 13px solid rgba(0, 0, 0, 0.3);
+    background: rgba(43, 49, 70, 0.7);
+    text-align: center;
+}
+
+.wrapper-form-registration > h1 {
+    font-size: 35px;
+    padding: 10px 0 10px 0;
+    color: #B11B75;
+}
+
+.wrapper-registration-form-master {
+    width: 90%;
+    margin: 0 auto;
+}

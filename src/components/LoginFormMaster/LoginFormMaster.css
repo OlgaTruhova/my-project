@@ -1,0 +1,23 @@
+.wrapper-form-login {
+    width: 80%;
+    margin: 10% auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    border: 13px solid rgba(0, 0, 0, 0.3);
+    background: rgba(43, 49, 70, 0.7);
+    text-align: center;
+
+}
+  
+.wrapper-form-login h1 {
+    font-size: 40px;
+    padding-top: 5%;
+    padding-bottom: 4%;
+    color: #B11B75;
+}
+
+.wrapper-form-login input {
+    margin: 20px auto;
+}

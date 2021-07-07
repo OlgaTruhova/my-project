@@ -1,80 +1,68 @@
 import React from 'react';
+import {Route, Switch} from 'react-router-dom';
+import {Header} from './Header/Header';
+import {HomePage} from './pages/HomePage/HomePage';
+import {MasterPage} from './pages/MasterPage/MasterPage';
+import {ClientPage} from './pages/ClientPage/ClientPage';
+import {auth, createFirebaseMaster} from './firebase/firebase';
 import './App.css';
-import LoginFormMaster from "./LoginFormMaster/LoginFormMaster";
-import RegistrationFormMaster from './RegistrationFormMaster/RegistrationFormMaster';
-import CreatingMasterCard from './CreatingMasterCard/CreatingMasterCard';
-
 
 
 export default class App extends React.Component {
-    constructor (props) {
-        super (props);
 
-        this.state = {
-            targetTextContent: 'ВХОД',
+    state = {
+        currentMaster: null
+    };
 
-            firstname: '',
-            lastname: '',
-            password: '',
-            tel: '',
-            email: '',
-            adres: '',
-            services: []
-        }
+    unsubscribeAuth = null;
+
+    componentDidMount () {
+        
+        this.unsubscribeAuth = auth.onAuthStateChanged( async (master) => {
+            console.log(master);
+
+            if (master) {
+                const masterRef = await createFirebaseMaster(master);
+
+                masterRef.onSnapshot(snapshot => {
+                    this.setState({
+                        currentMaster: {
+                            id: snapshot.id,
+                            ...snapshot.data()
+                        }
+                    },
+                    () => {
+                        console.log(this.state);
+                    });
+                }); //усл. snapShot меняется запускается эта функция
+                // this.setState({currentUser: user});
+            } else {
+                this.setState({currentMaster: master});
+            }
+        });   
     }
 
-    clickHandler = (e) => this.setState ({targetTextContent: e.target.textContent})
-
-    changeHandler = (name, value) => {
-        this.setState({[name]: value})
-    }
-
-    // formIsCompleted = () => {
-    //     console.log(this.state);
-    //     Object.values(this.state).some(vel => {
-    //         console.log(vel === '');
-    //         console.log(Object.values(this.state));
-    //     })
-    // }
-
-    hendleSubmit = (e) => {
-        e.preventDefault();
-        console.log(this.state);
+    componentWillUnmount () {
+        this.unsubscribeAuth();
     }
 
     render () {
 
-        const formRegistrationOrLogin = (
-            <>
-              {this.state.targetTextContent === 'ВХОД' ? <LoginFormMaster /> 
-              : <RegistrationFormMaster changeHandler={this.changeHandler} services={this.state.services} hendleSubmit={this.hendleSubmit} formIsCompleted={this.formIsCompleted} />}
-            </>
-          )
-        // const styleClass = {}
-
         return (
             <div className='App'>
-                {/* <div className='beauty'><h1>beauty</h1></div> */}
                 <div className='App-wrapper'>
-                    <div className='App-header'>
-                        <div className='for-client'><span>for</span> <span>КЛИЕНТ</span></div>
-                        <div className='for-master'><span>for</span> <span>МАСТЕР</span></div>
-                    </div>
-                    <div className='App-main'>
-                        <div className='wrapperForClient'>
-                            <CreatingMasterCard />
-                        </div>
-
-                        <div className='wrapperForMaster'>
-                            <nav className='login-registration-nav'>
-                                <div onClick={this.clickHandler}>ВХОД</div>
-                                <div onClick={this.clickHandler}>РЕГИСТРАЦИЯ</div>
-                            </nav>
-                            <div className='login-registration-win'>
-                                {formRegistrationOrLogin}
-                           </div>
-                        </div>
-                    </div>                 
+                    <Header />
+                    <Switch>
+                        <Route path='/' exact> 
+                            {/* <HomePage /> */}
+                            <HomePage currentMaster={this.state.currentMaster} />
+                        </Route>
+                        <Route path='/forclient' component={ClientPage} exact />
+                        <Route path='/formaster' exact> 
+                            {/* <MasterPage /> */}
+                            <MasterPage currentMaster={this.state.currentMaster} />
+                        </Route>
+                    </Switch>
                 </div>
             </div>
         )

@@ -1,0 +1,32 @@
+.form-input {
+    /* border: 1px solid red; */
+    width: 97%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-input__label {
+    /* border: 1px solid green; */
+    width: 25%;
+    color: #ffffff;
+    text-align: end;
+    padding-left: 10px;
+}
+
+.form-input__label:hover {
+    cursor: pointer;
+}
+
+.form-input__input {
+    width: 80%;
+    height: 40px;
+    min-width: 140px;
+    border-radius: 5px;
+    border: none;
+    padding-left: 10px;
+    margin: 8px 15px;
+    font-size: 15px;
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 4px 4px 5px rgba(0,0,0,0.8);
+}

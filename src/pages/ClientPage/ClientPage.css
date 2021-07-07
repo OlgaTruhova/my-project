@@ -1,0 +1,12 @@
+.client-page {
+    border: 10px solid rgb(177, 27, 117);
+    height: 82vh;
+    display: flex;
+    justify-content: center;
+    box-shadow: 6px -6px 5px rgba(0,0,0,0.8);
+}
+
+.client-page__extended-master-card {
+    width: 40%;
+    border: 1px solid red;
+}

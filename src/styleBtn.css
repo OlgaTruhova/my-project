@@ -1,0 +1,26 @@
+.style-btn, .style-btn-reg {
+    width: 120px;
+    height: 45px;
+    border: none;
+    border-radius: 5px;
+    font-size: 25px;
+    background-color: #B11B75;
+    color: white;
+    margin: 20px 0 40px 0;
+    cursor: pointer;
+    box-shadow: 4px 4px 5px rgba(0,0,0,0.8);
+}
+
+.style-btn:hover, .style-btn-reg:hover {
+    background-color: #b43f85;
+}
+
+.style-btn:active, .style-btn-reg:active {
+    box-shadow: 4px 4px 5px rgba(0,0,0,0.0);
+}
+
+.style-btn-reg {
+    width: 270px;
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
