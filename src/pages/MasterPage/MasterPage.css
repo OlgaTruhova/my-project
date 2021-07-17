@@ -2,9 +2,32 @@
     border: 10px solid rgb(177, 27, 117);
     height: 82vh;
     display: flex;
-    padding-top: 20px;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
     box-shadow: 6px -6px 5px rgba(0,0,0,0.8);
+}
+
+.master-page__log-out {
+    width: 50px;
+    height: 50px;
+    border-radius: 10%;
+    overflow: hidden;
+    background: #B11B75;
+    padding: 10px;
+    position: absolute;
+    right: 5%;
+    margin: 20px;
+    box-shadow: 4px 4px 4px rgba(0,0,0,0.8);
+    cursor: pointer;
+}
+
+.master-page__log-out:hover {
+    background-color: #b43f85;
+}
+
+.master-page__log-out_button-close {
+    width: 100%;
+    display: block;
 }
 
 .master-page__text {

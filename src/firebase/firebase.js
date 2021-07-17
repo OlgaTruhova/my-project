@@ -1,6 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
+import 'firebase/database'
 
 const config = {
     apiKey: "AIzaSyAGu4bwkStu3D1B98Lo0gczwMK3hE28lOg",
@@ -13,40 +14,50 @@ const config = {
 
 firebase.initializeApp(config);
 
-
 export const firestore = firebase.firestore();
 export const auth = firebase.auth();
+export const database = firebase.database();
 
-// const provider = new firebase.auth.GoogleAuthProvider();
-// provider.setCustomParameters({prompt: 'select_account'});
 
 export const createFirebaseMaster = async (master, payload = {}) => {
+    // console.log(master);
 
     if (!master) return;
 
-    const masterRef = firestore.doc(`masters/${master.uid}`); //получаем объект, который позволяет получать данные 
-    console.log(master.uid);
-
-    const masterSnapShot = await masterRef.get(); // начинаем пользоваться пакетом функций
-    console.log(masterSnapShot);
-    
-    if (!masterSnapShot.exists) {
-        const {firstname, lastname, tel, email, adres, password,
-            // services
-        } = payload;
-        console.log(payload);
-
+    const userRef = firestore.doc(`masters/${master.uid}`);
+    console.log(userRef);
+    const userSnapShot = await userRef.get(); 
+   
+    if (!userSnapShot.exists) {
         try {
-            await masterRef.set({firstname, lastname, tel, email, adres, password,
-
-                // services,
-                ...payload
-            })
+            await userRef.set({id: master.uid, ...payload})
         } catch (err) {
-            console.log(err); //окошко с сообщением, что usera не существует
+            console.log(err); //прописать ошибки
         }
     } 
-    return masterRef;
+
+    return userRef;
+};
+
+export const createFirebaseMasterAppointment = async ({currentMaster, clickDate, clickTime, clientName, clientContact}) => {
+    console.log(currentMaster.id);
+
+    // if (!master) return;
+
+    const userRef = firestore.doc(`masters/${currentMaster.id}`).collection(`appointment`);
+    const userSnapShot = await userRef.get(); 
+    console.log(userRef);
+    console.log(userSnapShot);
+   
+    if (!userSnapShot.exists) {
+        try {
+            await userRef.set({ clickDate, clickTime, clientName, clientContact})
+        } catch (err) {
+            console.log(err); //прописать ошибки
+        }
+    } 
+
+    return userRef;
 };
 
 

@@ -1,38 +1,18 @@
-import React, {Component} from 'react'
+import React from 'react'
 import Calendar from 'react-calendar';
 import {FormTimeRegistration} from '../../components/FormTimeRegistration/FormTimeRegistration';
 import 'react-calendar/dist/Calendar.css';
+import './Calendar.css';
 
-export default class CalendarReact extends Component {
 
-    constructor (props) {
-        super (props);
-        this.state = {
-            // date: new Date(),
-            clickDate: ''
-        }
-    }
+export const CalendarReact = ({changeHandlerDate, clickDate, changeHandlerTime}) => {
 
-    changeHandlerDate  = (date) => {
-        this.setState({clickDate: date},
-        () => {
-            console.log(this.state);
-        })
-    }
+    return(
 
-    render(){   
+        <div className='wrapper-calendar'>
+            <Calendar className='calendar' onClickDay = {changeHandlerDate} /> 
 
-        const CreateFormTimeRegistration = (
-            <>
-                {this.state.clickDate ? <FormTimeRegistration /> : null}
-            </>
-        )
-
-        return(
-            <div>
-                <Calendar onClickDay = {this.changeHandlerDate} /> 
-                {CreateFormTimeRegistration}  
-            </div>
-        )
-    }
+            {clickDate ? <FormTimeRegistration changeHandlerTime={changeHandlerTime} /> : null}
+        </div>
+    ) 
 }

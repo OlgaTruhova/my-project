@@ -1,7 +1,7 @@
 import React from 'react';
-// import { withRouter } from 'react-router';
 import {FormInput} from '../FormInput/FormInput';
 import {auth} from '../../firebase/firebase';
+import { Link } from 'react-router-dom';
 import './LoginFormMaster.css';
 import '../../styleBtn.css';
 
@@ -14,23 +14,21 @@ export default class LoginFormMaster extends React.Component {
 
     handlerChange = ({target: {name, value}}) => {
         this.setState({[name]: value},
-        () => {console.log(this.state)}  
-        ) 
+        () => {}) 
     }
 
     handlerSubmit = async (e) => {
         e.preventDefault();
-        // console.log(this.state);
 
         const {email, password} = this.state;
-
+        
         try {
             await auth.signInWithEmailAndPassword(email, password);
             this.setState({email: '', password: ''});
+            
         } catch (err) {
             console.log(err);
         }
-        // this.setState({email: '', password: ''})
     }
 
     render () {

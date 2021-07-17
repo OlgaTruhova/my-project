@@ -17,7 +17,7 @@ export default class RegistrationFormMaster extends React.Component {
             confirmPassword: '',
             tel: '',
             email: '',
-            adres: '',
+            address: '',
             // services: []
         }
     }
@@ -57,9 +57,7 @@ export default class RegistrationFormMaster extends React.Component {
     hendleSubmit = async (e) => {
         e.preventDefault();
 
-        // console.log(this.state);
-
-        const {firstname, lastname, password, confirmPassword, email, tel, adres} = this.state;
+        const {firstname, lastname, password, confirmPassword, email, tel, address} = this.state;
 
         if(password !== confirmPassword) {
             alert('Парол не совпадает!');
@@ -68,9 +66,9 @@ export default class RegistrationFormMaster extends React.Component {
 
         try {
             const master = await auth.createUserWithEmailAndPassword(email, password);
-            console.log(master, {firstname, lastname, password, confirmPassword, email, tel, adres});
-            await createFirebaseMaster(master, {firstname, lastname, tel, adres});
-            // this.setState({firstname: '', lastname: '', password: '', confirmPassword: '', email: '', tel: '', adres: ''});
+            await createFirebaseMaster(master.user, {firstname, lastname, tel, address, email, password});
+           
+            // this.setState({firstname: '', lastname: '', password: '', confirmPassword: '', email: '', tel: '', address: ''});
 
         } catch (err) {
             console.log(err);
@@ -78,14 +76,14 @@ export default class RegistrationFormMaster extends React.Component {
     }
 
     render () {
-        const {firstname, lastname, password, confirmPassword, email, tel, adres} = this.state;
+        const {firstname, lastname, password, confirmPassword, email, tel, address} = this.state;
         return (
             <form className='wrapper-form-registration' onSubmit={this.hendleSubmit}>      
                 <h1>Регистрация</h1>
                 <FormInput 
                     type='text' 
                     name='firstname' 
-                    label='*Имя' 
+                    label='Имя' 
                     placeholder='Введите имя' 
                     value = {firstname}
                     required 
@@ -93,7 +91,7 @@ export default class RegistrationFormMaster extends React.Component {
                 <FormInput 
                     type='text' 
                     name='lastname' 
-                    label='*Фамилия' 
+                    label='Фамилия' 
                     placeholder='Введите фамилию' 
                     value={lastname}
                     required 
@@ -101,7 +99,7 @@ export default class RegistrationFormMaster extends React.Component {
                 <FormInput 
                     type='password' 
                     name='password' 
-                    label='*Пароль' 
+                    label='Пароль' 
                     placeholder='Введите пароль' 
                     value={password}
                     required 
@@ -109,7 +107,7 @@ export default class RegistrationFormMaster extends React.Component {
                 <FormInput 
                     type='password' 
                     name='confirmPassword' 
-                    label='*Подтвердите пароль' 
+                    label='Подтвердите пароль' 
                     placeholder='Подтвердите пароль' 
                     value={confirmPassword}
                     required 
@@ -117,7 +115,7 @@ export default class RegistrationFormMaster extends React.Component {
                 <FormInput 
                     type='tel' 
                     name='tel' 
-                    label='*Мобильный телефон' 
+                    label='Мобильный телефон' 
                     // pattern='+375([0-9]{2})[0-9]{3}-[0-9]{2}-[0-9]{2}' 
                     placeholder='+375(00)-000-00-00' 
                     value={tel}
@@ -126,17 +124,17 @@ export default class RegistrationFormMaster extends React.Component {
                 <FormInput 
                     type='email' 
                     name='email' 
-                    label='*Email' 
+                    label='Email' 
                     placeholder='Введите email' 
                     value={email}
                     required 
                     onChange={this.handlerChange} />
                 <FormInput 
                     type='text' 
-                    name='adres' 
-                    label='*Адрес оказания услуги' 
+                    name='address' 
+                    label='Адрес оказания услуги' 
                     placeholder='Введите адрес' 
-                    value={adres}
+                    value={address}
                     required 
                     onChange={this.handlerChange} />
                 <button className='style-btn-reg'>Зарегистрироваться</button>

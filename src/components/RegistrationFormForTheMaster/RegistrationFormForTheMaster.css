@@ -1,0 +1,30 @@
+.wrapper-registr-form-for-the-master {
+    margin: 12% auto;
+    /* border: 1px solid greenyellow; */
+    width: 50%;
+}
+
+.registr-form-for-the-master {
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+    border: 13px solid rgba(0, 0, 0, 0.3);
+    background: rgba(43, 49, 70, 0.7);
+    box-shadow: 5px 5px 3px rgba(0,0,0,0.7);
+}
+
+.registr-form-for-the-master__text {
+    color: #ffffff;
+    font-size: 30px;
+    padding: 20px;
+    font-weight: normal;
+}
+
+.registr-form-for-the-master input {
+    margin: 10px auto;
+}
+
+.registr-form-for-the-master button {
+    margin: 20px 10px;
+    font-size: 20px;
+}

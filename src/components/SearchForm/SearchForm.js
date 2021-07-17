@@ -1,17 +1,19 @@
 import React from 'react';
 import {DropDownListForSearchForm} from '../DropDownListForSearchForm/DropDownListForSearchForm';
+import imgCearch from '../SearchForm/icons-search.png';
+import './SearchForm.css';
 
-export const SearchForm = ({services}) => {
-    
+
+export const SearchForm = ({services, changeHandler}) => {
+
     return (
         <form className='cearch-form'>
-            <h3>Поиск:</h3>
-            <input type='text' placeholder='Введите именя или фамилию' />
-            <input type='text' placeholder='Введите адрес' />
-            <select name='serviceSelect' id='serviceSelect'>
+            <img src={imgCearch} alt='img' className='cearch-form__imgCearch' />
+            <input type='text' name='cearchName' placeholder='Введите именя или фамилию' onChange={changeHandler}/>
+            <select name='serviceSelect' id='serviceSelect' onChange={changeHandler}>
                 {services.map((servis) => (<DropDownListForSearchForm servis = {servis} />))}
             </select>
-            <button>Clear</button>
+            <button>Очистить</button>
         </form>
     )
 }

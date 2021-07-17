@@ -1,42 +1,33 @@
 import React from 'react';
-import CalendarReact from '../CalendarReact/CalendarReact';
+import {CalendarReact} from '../CalendarReact/CalendarReact';
+import userImage from '../../user-png.png';
+import {Link} from 'react-router-dom';
+import {auth} from '../../firebase/firebase';
 import './ExtendedMasterCard.css';
 
-export default class ExtendedMasterCard extends React.Component {
+export const ExtendedMasterCard = ({masterInfo, changeHandlerDate, changeHandlerTime, clickDate}) => {
 
-    constructor (props) {
-        super (props);
-        this.state = {
-            date: '',
-        }
-    }
+    // const masterTarget = this.props.masterInfo;
 
-  
-render () {
     return (
-        <div className='wrapper-extended-master-card'>
-            <div className='extended-master-card'>
-                <div className='extended-master-card__info'>
-                    <div className='extended-master-card__img'>
-                        <img src='https://proprikol.ru/wp-content/uploads/2019/06/kartinki-krasivyh-devushek-skachat-besplatno-2.jpg' />
-                    </div>
-                    <div className='extended-master-card__text'>
-                        <div>Фамилия, имя: Ольга Трухова</div>
-                        <div>Моб.тел.: +375(29) 690-70-72</div>
-                        <div>Оказываемые услуги: маникюр, педикюр</div>
-                        <div>Адрес оказания услуги: ул. Мележа, д.4, кв.22</div>
-                        <div>email: truhovaolga911@gmail.com</div>
-                        {/* <div>Пароль: 123456</div> */}
-                    </div>
+        <div className='extended-master-card'>
+            <div className='extended-master-card__info'>
+                <div className='extended-master-card__img'>
+                    <img src={userImage} alt='img' />
                 </div>
-                <CalendarReact />
+                <div className='extended-master-card__text'>
+                    <div>{masterInfo.firstname} {masterInfo.lastname}</div>
+                    <div>{masterInfo.tel}</div>
+                    {/* <div>{masterTarget.services.join(', ')}</div> */}
+                    <div>{masterInfo.address}</div>
+                    <div>{masterInfo.email}</div>
+                </div>
             </div>
-            <div className='extended-master-card__request'>
-                
-            </div>
-            
-        </div>
+            <CalendarReact 
+                changeHandlerDate={changeHandlerDate} 
+                clickDate={clickDate} 
+                changeHandlerTime={changeHandlerTime}
+            />
+        </div>   
     )
-}
-    
 }

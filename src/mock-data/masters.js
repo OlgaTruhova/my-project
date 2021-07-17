@@ -6,7 +6,7 @@ export const masters = [
         password: '123456',
         tel: '+375(29)690-70-72',
         email: 'truhovaolga@gmail.com',
-        adres: 'г. Гомель, ул. Советская, 6',
+        address: 'г. Гомель, ул. Советская, 6',
         services: ['Маникюр', 'Педикюр']
     }, 
     {
@@ -16,7 +16,7 @@ export const masters = [
         password: '234567',
         tel: '+375(29)620-30-42',
         email: 'ekaterinasid@gmail.com',
-        adres: 'г. Гомель, ул. Жукова, д.10 , кв.11',
+        address: 'г. Гомель, ул. Жукова, д.10 , кв.11',
         services: ['Коррекция, окрашивание бровей']
     }, 
     {
@@ -26,7 +26,7 @@ export const masters = [
         password: '789456',
         tel: '+375(44)123-30-42',
         email: 'ivanp@gmail.com',
-        adres: 'г. Гомель, пр. Ленина, д.4 , кв.1',
+        address: 'г. Гомель, пр. Ленина, д.4 , кв.1',
         services: ['Шугаринг']
     }, 
     {
@@ -36,7 +36,7 @@ export const masters = [
         password: '456123',
         tel: '+375(33)333-30-55',
         email: 'irinaIrisha@mail.ru',
-        adres: 'г. Гомель, ул. Мазурова, д.33',
+        address: 'г. Гомель, ул. Мазурова, д.33',
         services: ['Коррекция, окрашивание бровей', 'Наращивание ресниц']
     }, 
     {
@@ -46,7 +46,7 @@ export const masters = [
         password: '781053',
         tel: '+375(29)781-05-30',
         email: 'ekaterinasmirnova@mail.ru',
-        adres: 'г. Гомель, ул. 60 лет СССР, д.129 , кв.58',
+        address: 'г. Гомель, ул. 60 лет СССР, д.129 , кв.58',
         services: ['Стрижки, окрашивание волос', 'Прически и укладка волос']
     }, 
     {
@@ -56,7 +56,7 @@ export const masters = [
         password: '987654',
         tel: '+375(33)456-37-42',
         email: 'petro@gmail.com',
-        adres: 'г. Гомель, ул. Крестьянская, д.1',
+        address: 'г. Гомель, ул. Крестьянская, д.1',
         services: ['Маникюр', 'Педикюр']
     }, 
     {
@@ -66,7 +66,7 @@ export const masters = [
         password: '6258746',
         tel: '+375(29)124-98-98',
         email: 'ekaterina@gmail.com',
-        adres: 'г. Гомель, ул. Интернациональная, д.8 , кв.101',
+        address: 'г. Гомель, ул. Интернациональная, д.8 , кв.101',
         services: ['Коррекция, окрашивание бровей', 'Наращивание ресниц']
     }, 
     {
@@ -76,7 +76,7 @@ export const masters = [
         password: '321789',
         tel: '+375(44)723-55-84',
         email: 'evgeshabrig@yandex.ru',
-        adres: 'г. Гомель, ул. Карповича, д.49',
+        address: 'г. Гомель, ул. Карповича, д.49',
         services: ['Маникюр', 'Педикюр']
     }, 
     {
@@ -86,7 +86,7 @@ export const masters = [
         password: '895421',
         tel: '+375(29)120-50-42',
         email: 'nastja@gmail.com',
-        adres: 'г. Гомель, пр. Ленина, д.58',
+        address: 'г. Гомель, пр. Ленина, д.58',
         services: ['Стрижки, окрашивание волос']
     }, 
     {
@@ -96,7 +96,7 @@ export const masters = [
         password: '951753',
         tel: '+375(29)456-78-90',
         email: 'ildar@mail.ru',
-        adres: 'г. Гомель, пр. Победы, д.9',
+        address: 'г. Гомель, пр. Победы, д.9',
         services: ['Стрижки, окрашивание волос']
     }, 
     {
@@ -106,7 +106,7 @@ export const masters = [
         password: '1208864',
         tel: '+375(29)690-70-72',
         email: 'truhovaolga911@gmail.com',
-        adres: 'г. Гомель, ул. Мележа, д.4 , кв.22',
+        address: 'г. Гомель, ул. Мележа, д.4 , кв.22',
         services: ['Коррекция, окрашивание бровей']
     }, 
     {
@@ -116,7 +116,7 @@ export const masters = [
         password: '9587463',
         tel: '+375(33)123-30-22',
         email: 'irinakrisha@mail.ru',
-        adres: 'г. Гомель, ул. Советская, д.159',
+        address: 'г. Гомель, ул. Советская, д.159',
         services: ['Наращивание ресниц']
     }, 
     {
@@ -126,7 +126,7 @@ export const masters = [
         password: '912347',
         tel: '+375(44)788-99-77',
         email: 'natali@gmail.com',
-        adres: 'г. Гомель, ул. Сосновая, д.8 , кв.42',
+        address: 'г. Гомель, ул. Сосновая, д.8 , кв.42',
         services: ['Наращивание ресниц', 'Коррекция, окрашивание бровей']
     }, 
     {
@@ -136,7 +136,7 @@ export const masters = [
         password: '9874123',
         tel: '+375(33)658-30-42',
         email: 'angelika@mail.ru',
-        adres: 'г. Гомель, ул. Жукова, д.42 , кв.44',
+        address: 'г. Гомель, ул. Жукова, д.42 , кв.44',
         services: ['Шугаринг']
     }, 
     {
@@ -146,7 +146,7 @@ export const masters = [
         password: '456879',
         tel: '+375(29)125-46-42',
         email: 'natalimoroz@gmail.com',
-        adres: 'г. Гомель, ул. МЖК "Солнечный", д.15 , кв.18',
+        address: 'г. Гомель, ул. МЖК "Солнечный", д.15 , кв.18',
         services: ['Прически и укладка волос']
     }, 
 

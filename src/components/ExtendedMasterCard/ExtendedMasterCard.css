@@ -1,25 +1,20 @@
-.wrapper-extended-master-card {
-    background: none;
-    border: 1px solid red;
-    width: 100%;
-    display: flex;
-    align-items: flex-start;
+.extended-master-card {
+    /* border: 1px solid blue; */
+    width: 50%;
+    height: 100%;
+    /* background: rgba(43, 49, 70, 0.7); */
 }
 
-.extended-master-card {
-    border: 1px solid blue;
-    width: 50%;
-    
+.extended-master-card__appointment div {
+    color: white;
+    font-size: 20px;
 }
 
 .extended-master-card__info {
-    /* margin: 15px 0 15px 0;  */
-    border: 1px solid green;
     width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    color: white;
 }
 
 .extended-master-card__img {
@@ -27,6 +22,8 @@
     height: 150px;
     border-radius: 50%;
     overflow: hidden;
+    background: #B11B75;
+    margin: 10px;
 }
 
 .extended-master-card__img img {
@@ -34,8 +31,17 @@
    display: block;
 }
 
+/* .extended-master-card__img img:hover {
+    cursor: pointer;
+} */
+
 .extended-master-card__text {
     width: 70%;
     text-align: start;
+    color: white;
 }
 
+.extended-master-card__text div {
+    padding: 2px 0 2px 15px;
+    font-size: 18px;
+}
