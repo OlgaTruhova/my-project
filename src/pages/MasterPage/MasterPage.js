@@ -31,9 +31,7 @@ class MasterP extends React.Component {
 
     handlerChange = ({target: {name, value}}) => {
         this.setState({[name]: value},
-        () => {
-            console.log(this.state)
-        }) 
+        () => {}) 
     }
     
     cancellationOfRegistration = () => {
@@ -47,13 +45,10 @@ class MasterP extends React.Component {
         
         const {clickDate, clickTime, clientName, clientContact} = this.state;
         const {currentMaster} = this.props;
-        console.log(currentMaster);
 
         try {
-            await createFirebaseMasterAppointment({currentMaster, clickDate, clickTime, clientName, clientContact});
-           
-            // this.setState({firstname: '', lastname: '', password: '', confirmPassword: '', email: '', tel: '', address: ''});
-
+            await createFirebaseMasterAppointment({currentMaster, clickDate, clickTime, clientName, clientContact},
+            this.setState({clickDate: '', clickTime: '', clientName: '', clientContact: ''}));
         } catch (err) {
             console.log(err);
         }

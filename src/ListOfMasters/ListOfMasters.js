@@ -23,7 +23,7 @@ export default class ListOfMasters extends React.Component {
 
     render () {
 
-        const masters = this.props.masters;
+        const masters = this.props.masters; // 
 
         const mastersFilter = masters.filter(master => 
             master.firstname.toLowerCase().includes(this.state.cearchData) ||

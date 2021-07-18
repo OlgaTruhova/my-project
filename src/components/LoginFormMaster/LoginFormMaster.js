@@ -52,7 +52,8 @@ export default class LoginFormMaster extends React.Component {
                     required 
                     handlerChange={this.handlerChange} 
                 />
-                <button className='style-btn'>Вход</button>
+                <button className='style-btn'>Вход</button> 
+                {/* history push */}
             </form>
         )
     }

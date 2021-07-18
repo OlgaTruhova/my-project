@@ -3,7 +3,7 @@
     height: 82vh;
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
     box-shadow: 6px -6px 5px rgba(0,0,0,0.8);
 }
 

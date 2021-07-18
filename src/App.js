@@ -4,7 +4,8 @@ import {Header} from './Header/Header';
 import {HomePage} from './pages/HomePage/HomePage';
 import {MasterPage} from './pages/MasterPage/MasterPage';
 import ClientPage from './pages/ClientPage/ClientPage';
-import {auth, createFirebaseMaster} from './firebase/firebase';
+import { auth, createFirebaseMaster } from './firebase/firebase';
+import { connect } from 'react-redux';
 import './App.css';
 
 

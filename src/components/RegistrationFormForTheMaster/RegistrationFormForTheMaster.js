@@ -7,7 +7,7 @@ export const RegistrationFormForTheMaster = ({handlerChange, clientName, clientC
     return (
         <div className='wrapper-registr-form-for-the-master'>
             <div className='registr-form-for-the-master'>
-                <h1 className='registr-form-for-the-master__text'>Введите свои данные</h1>
+                <h1 className='registr-form-for-the-master__text'>Введите данные</h1>
                 <FormInput 
                     type='text' 
                     name='clientName' 

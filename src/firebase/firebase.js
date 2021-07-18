@@ -20,12 +20,10 @@ export const database = firebase.database();
 
 
 export const createFirebaseMaster = async (master, payload = {}) => {
-    // console.log(master);
 
     if (!master) return;
 
     const userRef = firestore.doc(`masters/${master.uid}`);
-    console.log(userRef);
     const userSnapShot = await userRef.get(); 
    
     if (!userSnapShot.exists) {
@@ -40,19 +38,19 @@ export const createFirebaseMaster = async (master, payload = {}) => {
 };
 
 export const createFirebaseMasterAppointment = async ({currentMaster, clickDate, clickTime, clientName, clientContact}) => {
-    console.log(currentMaster.id);
 
-    // if (!master) return;
+    if (!currentMaster.id) return;
 
-    const userRef = firestore.doc(`masters/${currentMaster.id}`).collection(`appointment`);
+    const userRef = firestore.doc(`masters/${currentMaster.id}`);
     const userSnapShot = await userRef.get(); 
-    console.log(userRef);
-    console.log(userSnapShot);
-   
-    if (!userSnapShot.exists) {
+
+    if (userSnapShot.id === currentMaster.id) {
+
         try {
-            await userRef.set({ clickDate, clickTime, clientName, clientContact})
-        } catch (err) {
+            console.log(true);
+            await userRef.collection('appointment').add({clickDate, clickTime, clientName, clientContact})
+        } 
+        catch (err) {
             console.log(err); //прописать ошибки
         }
     } 

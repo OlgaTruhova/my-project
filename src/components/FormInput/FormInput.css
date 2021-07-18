@@ -1,6 +1,6 @@
 .form-input {
-    /* border: 1px solid red; */
-    width: 97%;
+    /* border: 1px solid rgb(208, 255, 0); */
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -11,7 +11,8 @@
     width: 25%;
     color: #ffffff;
     text-align: end;
-    padding-left: 10px;
+    /* padding-left: 10px; */
+    font-size: 15px;
 }
 
 .form-input__label:hover {
@@ -19,7 +20,8 @@
 }
 
 .form-input__input {
-    width: 80%;
+    /* border: 1px solid rgb(45, 0, 128); */
+    width: 75%;
     height: 40px;
     min-width: 140px;
     border-radius: 5px;

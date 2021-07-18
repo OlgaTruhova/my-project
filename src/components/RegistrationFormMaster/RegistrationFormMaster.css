@@ -1,9 +1,37 @@
 .wrapper-form-registration {
     width: 90%;
-    margin: 0 auto;
+    margin: 1% auto;
     border: 13px solid rgba(0, 0, 0, 0.3);
     background: rgba(43, 49, 70, 0.7);
     text-align: center;
+}
+
+/* .wrapper-registration-form-master {
+    border: 2px solid rgb(13, 168, 240);
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+} */
+
+.form-master {
+    /* border: 2px solid rgb(240, 13, 153); */
+    width: 100%;
+    display: flex;
+}
+
+.form-master-address {
+    /* border: 1px solid red; */
+    width: 100%;
+}
+
+.form-master-address .form-input__input {
+    width: 90%;
+}
+
+.form-master-address .form-input__label {
+    width: 20%;
 }
 
 .wrapper-form-registration > h1 {
@@ -12,7 +40,9 @@
     color: #B11B75;
 }
 
-.wrapper-registration-form-master {
-    width: 90%;
-    margin: 0 auto;
+.services-master {
+    /* border: 1px solid rgb(13, 240, 32); */
+    padding: 15px 0;
+    display: flex;
+    flex-wrap: wrap;
 }

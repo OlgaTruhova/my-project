@@ -1,12 +1,13 @@
 .form-inputserv {
-    width: 100%;
+    /* border: 1px solid red; */
+    width: 50%;
     display: flex;
     align-items: center;
 }
 
 .form-inputserv__label {
     width: 80%;
-    font-size: 14px;
+    /* font-size: 15px; */
     color: #ffffff;
     text-align: start;
 }
@@ -15,13 +16,11 @@
     cursor: pointer;
 }
 
-
 .form-inputserv__field {
     width: 20%;
-    height: 15px;
+    height: 20px;
     border-radius: 5px;
     border: none;
     text-align: end;
-    padding-left: 10px;
     margin: 5px 0 5px 20px;
 }

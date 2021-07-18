@@ -1,3 +1,46 @@
+import React from 'react';
+import {firestore} from '../firebase/firebase';
+import RegistrationFormMaster from '../components/RegistrationFormMaster/RegistrationFormMaster';
+
+
+// export default class master extends React.Component {
+//     state ={
+//         masters: []
+//     }
+
+//     creatingArrayOfMasters = () => {
+//         firestore.collection('masters').get().then(querySnapshot => {
+//             const masters = querySnapshot.docs.map(doc => doc.data());
+//             console.log(masters);
+
+//             this.setState({masters: master})
+//             console.log(this.state);
+        
+//         })
+//     }
+
+//     render () {
+//         return (
+//             {<RegistrationFormMaster masters={this.state.masters}/>}
+//         )
+//     }
+// } 
+
+// firestore.collection('appointment').get().then(querySnapshot => {
+//     const masters = querySnapshot.docs.map(doc => doc.data());
+//     console.log(masters);
+// })
+
+
+// firestore.collection('masters').get().then(querySnapshot => {
+//     console.log(querySnapshot)
+//     const masters = querySnapshot.docs.map(doc => doc.data());
+//     return masters;
+//     console.log(masters);
+// })
+// console.log(master);
+
+
 export const masters = [
     {
         id: 1,
