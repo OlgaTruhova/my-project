@@ -1,7 +1,9 @@
 import React from 'react';
 import {CardMaster} from '../components/CardMaster/CardMaster';
-import {masters} from '../mock-data/masters';
 import {SearchForm} from '../components/SearchForm/SearchForm';
+import store from '../redux/store';
+import {setCurrentListOfMasters} from '../redux/actions';
+import {firestore} from '../firebase/firebase';
 import './ListOfMasters.css';
 
 export default class ListOfMasters extends React.Component {
@@ -9,33 +11,44 @@ export default class ListOfMasters extends React.Component {
         super (props);
 
         this.state = {
-            services: ['Выберите услугу', 'Маникюр', 'Педикюр', 'Шугаринг', 'Коррекция, окрашивание бровей', 'Наращивание ресниц', 'Прически и укладка волос', 'Стрижки, окрашивание волос'],
-            // masters: masters,
             cearchData: null,
+            masters: [],
+            mastersFilter: []
         }
     }
 
     changeHandler = ({target: {value}}) => {
+
         this.setState({cearchData: value.toLowerCase()},
-        () => {console.log(this.state)}  
+
+        async () => {
+            const {masters} = this.state;
+            const mastersFilter = await masters.filter(master => 
+                Object.values(master).join(', ').toLowerCase().includes(this.state.cearchData)
+            )
+            this.setState({mastersFilter: mastersFilter});
+        },
+            () => {}  
         ) 
+    }
+
+    componentDidMount () {
+
+        firestore.collection('masters').get().then(querySnapshot => {
+            const masters = querySnapshot.docs.map(doc => doc.data());
+            store.dispatch(setCurrentListOfMasters(masters));
+            const master = store.getState().masters.currentListOfMasters;           
+            this.setState({masters: master});
+        })
     }
 
     render () {
 
-        const masters = this.props.masters; // 
-
-        const mastersFilter = masters.filter(master => 
-            master.firstname.toLowerCase().includes(this.state.cearchData) ||
-            master.lastname.toLowerCase().includes(this.state.cearchData) ||
-            master.address.toLowerCase().includes(this.state.cearchData) ||
-            master.services.join(',').toLowerCase().includes(this.state.cearchData)
-        );
+        const {masters, mastersFilter} = this.state;
 
         return (
             <div className='wrapper-list-ofmasters'>
                 <SearchForm 
-                    services={this.state.services} 
                     changeHandler={this.changeHandler} 
                 />
                 {this.state.cearchData === null ? 
@@ -45,4 +58,3 @@ export default class ListOfMasters extends React.Component {
         )
     }
 }
-

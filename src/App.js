@@ -1,18 +1,17 @@
 import React from 'react';
-import {Route, Switch, Link} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import {Header} from './Header/Header';
 import {HomePage} from './pages/HomePage/HomePage';
 import {MasterPage} from './pages/MasterPage/MasterPage';
 import ClientPage from './pages/ClientPage/ClientPage';
 import { auth, createFirebaseMaster } from './firebase/firebase';
-import { connect } from 'react-redux';
 import './App.css';
 
 
 export default class App extends React.Component {
     
     state = {
-        currentMaster: null
+        currentMaster: null,
     };
 
     unsubscribeAuth = null;
@@ -32,12 +31,12 @@ export default class App extends React.Component {
                         }
                     },
                     () => {
-                        console.log(this.state);
+                        // consolez.log(this.state);
                     });
                 });
             } else {
                 this.setState({currentMaster: master});
-                console.log(this.state);
+                // console.log(this.state);
             }
         });   
     }

@@ -1,20 +1,22 @@
 import React from 'react';
 import './FormTimeRegistration.css';
 
-const FormTimeRegistration = ({changeHandlerTime}) => {
+export default class FormTimeRegistration extends React.Component {
 
-    return (
+    state = {
+        timeButton: ['8.00',' 10.00', '12.00', '15.00', '17.00']
+    }
 
-        <div className='wrapper-form-time-registration'>
-            <div className='form-time-registration'>
-                <button value='8.00' onClick={changeHandlerTime}>8.00</button>
-                <button value='10.00' onClick={changeHandlerTime}>10.00</button>
-                <button value='12.00' onClick={changeHandlerTime}>12.00</button>
-                <button value='15.00' onClick={changeHandlerTime}>15.00</button>
-                <button value='17.00' onClick={changeHandlerTime}>17.00</button>
-            </div>
-        </div>        
-    )
+    render () {
+        const {changeHandlerTime} = this.props;
+        const {timeButton} = this.state;
+        return (
+        
+            <div className='wrapper-form-time-registration'>
+                <div className='form-time-registration'>
+                    {timeButton.map(time => <button value={time} onClick={changeHandlerTime}>{time}</button>)}
+                </div>
+            </div>        
+        )
+    }
 }
-
-export {FormTimeRegistration}

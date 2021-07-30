@@ -6,7 +6,7 @@ export const RegistrationFormForTheMaster = ({handlerChange, clientName, clientC
 
     return (
         <div className='wrapper-registr-form-for-the-master'>
-            <div className='registr-form-for-the-master'>
+            <form className='registr-form-for-the-master'>
                 <h1 className='registr-form-for-the-master__text'>Введите данные</h1>
                 <FormInput 
                     type='text' 
@@ -15,18 +15,18 @@ export const RegistrationFormForTheMaster = ({handlerChange, clientName, clientC
                     value = {clientName}
                     required 
                     handlerChange={handlerChange} 
-                    />
+                />
                 <FormInput 
                     type='tel' 
                     name='clientContact' 
                     placeholder='Телефон' 
                     value={clientContact}
-                    required 
+                    required
                     handlerChange={handlerChange} 
                 />
-                <button className='style-btn' onClick={hendleSubmit}>Записать</button>
+                <button type='submit' className='style-btn' onClick={hendleSubmit}>Записать</button>
                 <button className='style-btn' onClick={cancellationOfRegistration} >Отменить</button>
-            </div>
+            </form>
         </div>
     )
 }

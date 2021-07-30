@@ -1,4 +1,4 @@
-.style-btn, .style-btn-reg {
+.style-btn, .style-btn-reg, .style-btn-client-appointment, .cearch-form__btn {
     width: 120px;
     height: 45px;
     border: none;
@@ -11,11 +11,11 @@
     box-shadow: 4px 4px 5px rgba(0,0,0,0.8);
 }
 
-.style-btn:hover, .style-btn-reg:hover {
+.style-btn:hover, .style-btn-reg:hover, .style-btn-client-appointment:hover, .cearch-form__btn:hover {
     background-color: #b43f85;
 }
 
-.style-btn:active, .style-btn-reg:active {
+.style-btn:active, .style-btn-reg:active, .style-btn-client-appointment:active, .cearch-form__btn:active {
     box-shadow: 4px 4px 5px rgba(0,0,0,0.0);
 }
 
@@ -23,4 +23,18 @@
     width: 270px;
     margin-bottom: 20px;
     margin-top: 15px;
+}
+
+.style-btn-client-appointment {
+    width: 120px;
+    height: 40px;
+    font-size: 20px;
+    margin: 10px;
+}
+
+.cearch-form__btn {
+    width: 100px;
+    height: 35px;
+    font-size: 18px;
+    margin: 2px;
 }

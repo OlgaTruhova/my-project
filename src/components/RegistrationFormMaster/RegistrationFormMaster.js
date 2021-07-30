@@ -2,10 +2,13 @@ import React from 'react';
 import {FormInput} from '../FormInput/FormInput';
 import {FormInputServices} from '../FormInputServices/FormInputServices';
 import {auth, createFirebaseMaster} from '../../firebase/firebase';
+import {firestore} from '../../firebase/firebase';
 import './RegistrationFormMaster.css';
+import { connect } from 'react-redux';
+import store from '../../redux/store';
+import {setCurrentListOfMasters} from '../../redux/actions'
 
-
-export default class RegistrationFormMaster extends React.Component {
+class RegistrationFormMaster extends React.Component {
 
     constructor (props) {
         super (props);
@@ -18,15 +21,13 @@ export default class RegistrationFormMaster extends React.Component {
             tel: '',
             email: '',
             address: '',
-            services: []
+            services: [], // при пустом массиве сделать выпадающее окно, что надо выбрать хоть одну услугу!
         }
     }
 
     handlerChange = ({target: {name, value}}) => {
         this.setState({[name]: value},
-        () => {
-            console.log(this.state);
-        }  
+        () => {}  
         ) 
     }
 
@@ -41,7 +42,7 @@ export default class RegistrationFormMaster extends React.Component {
         let res = servicesOfMaster.find(servis => servis === e.target.value);
         if (e.target.checked === true) {
             if (res === undefined) {
-                servicesOfMaster.push(e.target.value);
+                servicesOfMaster.push(`${e.target.value}. `);
             }
         } else {
             if (res === e.target.value) {
@@ -62,21 +63,24 @@ export default class RegistrationFormMaster extends React.Component {
         const {firstname, lastname, password, confirmPassword, email, tel, address, services} = this.state;
 
         if(password !== confirmPassword) {
-            alert('Парол не совпадает!');
+            alert('Пароль не совпадает!');
+            return;
+        }
+
+        if (services.length === 0) {
+            alert('Выберите услуги, которые Вы будетет оказывать');
             return;
         }
 
         try {
             const master = await auth.createUserWithEmailAndPassword(email, password);
             await createFirebaseMaster(master.user, {firstname, lastname, tel, address, email, password, services});
-            // await firestore.collection('masters').get().then(querySnapshot => {
-            //     console.log(querySnapshot)
-            //     const masters = querySnapshot.docs.map(doc => doc.data());
-            //     // return masters; dispatch в store redux!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            //     console.log(masters);
-            // })
-           
-            // this.setState({firstname: '', lastname: '', password: '', confirmPassword: '', email: '', tel: '', address: ''});
+            
+            await firestore.collection('masters').get().then(querySnapshot => {
+                const masters = querySnapshot.docs.map(doc => doc.data());
+                store.dispatch(setCurrentListOfMasters(masters));
+            })
+
 
         } catch (err) {
             console.log(err);
@@ -85,6 +89,7 @@ export default class RegistrationFormMaster extends React.Component {
 
     render () {
         const {firstname, lastname, password, confirmPassword, email, tel, address} = this.state;
+
         return (
             <form className='wrapper-form-registration' onSubmit={this.hendleSubmit}>      
                 <h1>Регистрация</h1>
@@ -194,5 +199,9 @@ export default class RegistrationFormMaster extends React.Component {
     }
 }
 
+const mapStateToProps = (state) => ({
+    masters: state.masters.currentListOfMasters
+},
+()=>{console.log(state.masters.currentListOfMasters)});
 
- 
+export default connect(mapStateToProps)(RegistrationFormMaster);

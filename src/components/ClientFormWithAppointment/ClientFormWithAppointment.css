@@ -1,0 +1,42 @@
+.client-form-with-appointment {
+    border: 10px solid #B11B75;
+    width: 95%;
+    background: rgba(43, 49, 70, 0.7);
+    margin: 5px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.information-client-appointment {
+    /* border: 1px solid yellow; */
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.information-client-appointment div {
+    margin: 3px 7px;
+    color: #ffffff;
+}
+
+.deleting-appointment-client {
+    width: 25px;
+    min-width: 25px;
+    height: 25px;
+    border-radius: 10%;
+    overflow: hidden;
+    background: #B11B75;
+    padding: 3px;
+    margin: 15px 10px;
+    box-shadow: 4px 4px 4px rgba(0,0,0,0.8);
+    cursor: pointer;
+}
+
+.deleting-appointment-client:hover {
+    background-color: #b43f85;
+}
+
+.deleting-appointment-client_button {
+    width: 100%;
+    display: block;
+}

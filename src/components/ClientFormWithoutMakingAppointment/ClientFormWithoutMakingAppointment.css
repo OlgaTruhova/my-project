@@ -1,0 +1,23 @@
+.client-form-without-making-appointment {
+    border: 10px solid #B11B75;
+    width: 95%;
+    background: rgba(43, 49, 70, 0.7);
+    margin: 5px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.information-client-appointment {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.information-client-appointment div {
+    margin: 3px 7px;
+    color: #ffffff;
+}
+
+.style-btn {
+    
+}
