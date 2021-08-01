@@ -22,14 +22,14 @@ class MasterP extends React.Component {
     }
 
 
-    appointmentClient = async () => {
+    appointmentClient = () => {
         const {currentMaster} = this.props;
         
         firestore.doc(`masters/${currentMaster.id}`).collection('appointment').get().then(querySnapshot => {
             const appointment = querySnapshot.docs.map(doc => doc.data());
             console.log(appointment); 
             
-            const filterAppointmentClient = appointment.filter(appointment => appointment.clickDate === this.state.clickDate).sort((a,b) => b-a)
+            const filterAppointmentClient = appointment.filter(appointment => appointment.clickDate === this.state.clickDate);
 
             this.setState({appointmentClient: filterAppointmentClient});
             console.log(this.state);
@@ -44,7 +44,7 @@ class MasterP extends React.Component {
 
     changeHandlerTime  = (e) => {
         this.setState({clickTime: e.target.value},
-        () => {})
+        () => {console.log(this.state)})
     }
 
     handlerChange = ({target: {name, value}}) => {
@@ -74,6 +74,7 @@ class MasterP extends React.Component {
 
     render () {
         const {currentMaster} = this.props;
+        const {clickTime, clickDate} = this.state;
 
         return (
 
@@ -82,33 +83,39 @@ class MasterP extends React.Component {
                 {currentMaster ? 
                     (<>
                         {currentMaster ? 
-                        (<div className='master-page__log-out' onClick={() => auth.signOut()}>
-                            <img src={buttonClose} alt='img' className='master-page__log-out_button-close' />
-                        </div>) : null}
+                            (<div className='master-page__log-out' onClick={() => auth.signOut()}>
+                                <img src={buttonClose} alt='img' className='master-page__log-out_button-close' />
+                            </div>) : null
+                        }
                         <div className='wrapper-extended-master-card'>
                             <ExtendedMasterCard 
                                 masterInfo={currentMaster}
                                 changeHandlerDate={this.changeHandlerDate}
                                 changeHandlerTime={this.changeHandlerTime}
                                 clickDate={this.state.clickDate} 
+                                appointmentClient={this.state.appointmentClient}
                             />
                         </div>
                         
-                        {/* {this.state.clickDate ?  */}
-                        <ClientRegistration 
-                            appointmentClient={this.state.appointmentClient}
-                            clickDate={this.state.clickDate} 
-                        /> 
-                        {/* : null} */}
-
-                        {/* {this.state.clickTime ? 
-                            <RegistrationFormForTheMaster 
-                                handlerChange={this.handlerChange} 
-                                clientName={this.state.clientName}
-                                clientContact={this.state.clientContact}
-                                cancellationOfRegistration={this.cancellationOfRegistration}
-                                hendleSubmit={this.hendleSubmit}
-                            /> : null} */}
+                        <div className='wrapper-form'>
+                            {clickTime ?
+                                <div className='wrapper-registr-form-for-the-master'>
+                                    <RegistrationFormForTheMaster 
+                                        handlerChange={this.handlerChange} 
+                                        clientName={this.state.clientName}
+                                        clientContact={this.state.clientContact}
+                                        cancellationOfRegistration={this.cancellationOfRegistration}
+                                        hendleSubmit={this.hendleSubmit}
+                                    />
+                                </div> :
+                                
+                                (<ClientRegistration 
+                                    appointmentClient={this.state.appointmentClient}
+                                    clickDate={this.state.clickDate} 
+                                />)
+                            }
+                        </div>
+                       
                     </>) : 
     
                     (<>

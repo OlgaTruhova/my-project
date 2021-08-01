@@ -21,13 +21,22 @@ export default class LoginFormMaster extends React.Component {
         e.preventDefault();
 
         const {email, password} = this.state;
+        const {history} = this.props;
         
         try {
             await auth.signInWithEmailAndPassword(email, password);
             this.setState({email: '', password: ''});
-            
+            this.props.history.push('/formaster');
+        
         } catch (err) {
             console.log(err);
+            if (err.code === 'auth/wrong-password') {
+                alert('Вы ввели неверный пароль')
+            } else if (err.code === 'auth/user-not-found') {
+                alert('Вы ввели неверный email либо Вы не зарегистрированы')
+            } else if (err.code === 'auth/too-many-requests') {
+                alert('Доступ к этой учетной записи временно заблокирован. Вы можете повторить попытку позже')
+            }
         }
     }
 
@@ -53,7 +62,6 @@ export default class LoginFormMaster extends React.Component {
                     handlerChange={this.handlerChange} 
                 />
                 <button className='style-btn'>Вход</button> 
-                {/* history push */}
             </form>
         )
     }

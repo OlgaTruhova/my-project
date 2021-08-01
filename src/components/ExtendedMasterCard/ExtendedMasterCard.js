@@ -4,7 +4,7 @@ import userImage from '../../user-png.png';
 import {auth} from '../../firebase/firebase';
 import './ExtendedMasterCard.css';
 
-export const ExtendedMasterCard = ({masterInfo, changeHandlerDate, changeHandlerTime, clickDate}) => {
+export const ExtendedMasterCard = ({masterInfo, changeHandlerDate, changeHandlerTime, clickDate, appointmentClient}) => {
 
     return (
         <div className='extended-master-card'>
@@ -24,6 +24,7 @@ export const ExtendedMasterCard = ({masterInfo, changeHandlerDate, changeHandler
                 changeHandlerDate={changeHandlerDate} 
                 clickDate={clickDate} 
                 changeHandlerTime={changeHandlerTime}
+                appointmentClient={appointmentClient}
             />
         </div>   
     )

@@ -5,14 +5,14 @@ import 'react-calendar/dist/Calendar.css';
 import './Calendar.css';
 
 
-export const CalendarReact = ({changeHandlerDate, clickDate, changeHandlerTime}) => {
+export const CalendarReact = ({changeHandlerDate, clickDate, changeHandlerTime, appointmentClient}) => {
 
     return(
 
         <div className='wrapper-calendar'>
             <Calendar className='calendar' onClickDay = {changeHandlerDate} /> 
 
-            {clickDate ? <FormTimeRegistration changeHandlerTime={changeHandlerTime} /> : null}
+            {clickDate ? <FormTimeRegistration changeHandlerTime={changeHandlerTime} appointmentClient={appointmentClient} /> : null}
         </div>
     ) 
 }

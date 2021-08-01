@@ -4,16 +4,12 @@ import LoginFormMaster from '../../components/LoginFormMaster/LoginFormMaster';
 import './HomePage.css';
 
 
-const HomeP = ({history, currentMaster}) => {
-
-    // if(currentMaster) {
-    //     history.goBack();
-    // }
+const HomeP = ({history, currentGreeting}) => {
 
     return (
         <div className='home-page'>
             <div className='home-page__welcome'>
-                <h1>Добрый вечер!</h1>
+                <h1>{currentGreeting}</h1>
                 <h2>Рады приветствовать Вас на данном сайте!</h2>
                 <p>Если Вы зашли в качестве клиента, то перейдите на страницу for КЛИЕНТ.</p> 
                 <p>Если Вы зашли в качестве мастера по оказанию услуг и уже зарегистрированы, то посетите свой аккаунт, пройдите авторизацию.</p>
@@ -22,7 +18,7 @@ const HomeP = ({history, currentMaster}) => {
 
 
             <div className='home-page__login'>
-                <LoginFormMaster />
+                <LoginFormMaster history={history} />
             </div>
         </div>
     )

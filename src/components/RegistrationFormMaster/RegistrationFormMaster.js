@@ -84,6 +84,9 @@ class RegistrationFormMaster extends React.Component {
 
         } catch (err) {
             console.log(err);
+            if (err.code === 'auth/weak-password') {
+                alert('Пароль должен состоять не менее чем из 6 символов')
+            }
         }
     }
 

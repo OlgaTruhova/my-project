@@ -12,6 +12,9 @@ export default class App extends React.Component {
     
     state = {
         currentMaster: null,
+        currentDate: new Date,
+        currentHours: 0,
+        currentGreeting: 'Здравствуйте!'
     };
 
     unsubscribeAuth = null;
@@ -31,19 +34,45 @@ export default class App extends React.Component {
                         }
                     },
                     () => {
-                        // consolez.log(this.state);
+                        console.log(this.state);
                     });
                 });
             } else {
                 this.setState({currentMaster: master});
-                // console.log(this.state);
             }
         });   
+        // this.greeting()
+        this.clock();
     }
 
     componentWillUnmount () {
         this.unsubscribeAuth();
     }
+
+    clock () {
+        const hours = this.state.currentDate.getHours();
+        this.setState({currentHours: hours},
+        (this.greeting));
+    }
+
+    greeting () {
+        const {currentHours} = this.state;
+
+        if(currentHours <= 4) {
+            this.setState({currentGreeting: 'Доброй ночи!'}) 
+        } else if (currentHours <= 11) {
+            this.setState({currentGreeting: 'Доброе утро!'}) 
+        } else if (currentHours <= 16) {
+            this.setState({currentGreeting: 'Добрый день!'}) 
+        } else if (currentHours <= 23 ) {
+            this.setState({currentGreeting: 'Добрый вечер!'}) 
+        } else if (currentHours === 24 ) {
+            this.setState({currentGreeting: 'Доброй ночи!'}) 
+        } else {
+            return this.state.currentGreeting;
+        }
+    }
+
 
     render () {
 
@@ -53,7 +82,7 @@ export default class App extends React.Component {
                     <Header />
                     <Switch>
                         <Route path='/' exact>
-                            <HomePage />
+                            <HomePage currentDate={this.state.currentDate} currentGreeting={this.state.currentGreeting} />
                         </Route> 
                         <Route path='/forclient' component={ClientPage} exact />
                         <Route path='/formaster' exact>

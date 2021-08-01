@@ -3,6 +3,7 @@ import ListOfMasters from '../../ListOfMasters/ListOfMasters';
 import {ExtendedMasterCard} from '../../components/ExtendedMasterCard/ExtendedMasterCard';
 import {RegistrationFormForTheMaster} from '../../components/RegistrationFormForTheMaster/RegistrationFormForTheMaster';
 import {createFirebaseMasterAppointment} from '../../firebase/firebase';
+import {firestore} from '../../firebase/firebase';
 import store from '../../redux/store';
 import './ClientPage.css';
 
@@ -13,7 +14,8 @@ export default class ClientPage extends React.Component {
         clickDate: '',
         clickTime: '',
         clientName: '',
-        clientContact: ''
+        clientContact: '',
+        appointmentClient: []
     }
 
     clickMaster = (e) => {
@@ -28,9 +30,23 @@ export default class ClientPage extends React.Component {
         })  
     }
 
+    appointmentClient = async () => {
+        const {masterTarget} = this.state;
+        
+        firestore.doc(`masters/${masterTarget.id}`).collection('appointment').get().then(querySnapshot => {
+            const appointment = querySnapshot.docs.map(doc => doc.data());
+            console.log(appointment); 
+            
+            const filterAppointmentClient = appointment.filter(appointment => appointment.clickDate === this.state.clickDate).sort((a,b) => b-a)
+
+            this.setState({appointmentClient: filterAppointmentClient});
+            console.log(this.state);
+        })
+    }
+
     changeHandlerDate  = (date) => {
         this.setState({clickDate: date.toLocaleDateString("en-GB")},
-        ()=>{})
+        (this.appointmentClient))
     }
 
     changeHandlerTime  = (e) => {
@@ -71,7 +87,7 @@ export default class ClientPage extends React.Component {
 
                 <div className='client-page__extended-master-card'>
                     {this.state.clickTime ? 
-                        <>
+                        <div className='wrapper-registr-form-for-the-client'>
                             <RegistrationFormForTheMaster 
                                 handlerChange={this.handlerChange} 
                                 clientName={this.state.clientName}
@@ -79,7 +95,7 @@ export default class ClientPage extends React.Component {
                                 cancellationOfRegistration={this.cancellationOfRegistration}
                                 hendleSubmit={this.hendleSubmit}
                             />
-                        </> :
+                        </div> :
                         <>
                          {this.state.masterTarget ? 
                             <ExtendedMasterCard 
@@ -88,6 +104,7 @@ export default class ClientPage extends React.Component {
                                 clickTime={this.clickTime}
                                 changeHandlerDate={this.changeHandlerDate} 
                                 changeHandlerTime={this.changeHandlerTime}
+                                appointmentClient={this.state.appointmentClient}
                             /> 
                         : null} 
                         </>

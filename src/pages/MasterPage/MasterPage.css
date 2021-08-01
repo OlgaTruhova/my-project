@@ -1,10 +1,15 @@
 .master-page {
     border: 10px solid rgb(177, 27, 117);
-    height: 82vh;
+    height: 84vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     box-shadow: 6px -6px 5px rgba(0,0,0,0.8);
+}
+
+.wrapper-form {
+    width: 50%;
+    border: 1px solid greenyellow;
 }
 
 .master-page__log-out {
