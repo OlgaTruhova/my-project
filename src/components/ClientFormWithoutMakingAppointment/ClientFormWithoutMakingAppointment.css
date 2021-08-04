@@ -1,6 +1,5 @@
 .client-form-without-making-appointment {
-    border: 10px solid #B11B75;
-    width: 95%;
+    border: 10px solid rgba(0, 0, 0, 0.3);
     background: rgba(43, 49, 70, 0.7);
     margin: 5px auto;
     display: flex;

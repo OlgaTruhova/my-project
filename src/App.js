@@ -13,7 +13,7 @@ export default class App extends React.Component {
     state = {
         currentMaster: null,
         currentDate: new Date,
-        currentHours: 0,
+        currentHours: 1,
         currentGreeting: 'Здравствуйте!'
     };
 
@@ -34,7 +34,7 @@ export default class App extends React.Component {
                         }
                     },
                     () => {
-                        console.log(this.state);
+                        // console.log(this.state);
                     });
                 });
             } else {

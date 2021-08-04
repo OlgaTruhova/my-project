@@ -27,12 +27,12 @@ class MasterP extends React.Component {
         
         firestore.doc(`masters/${currentMaster.id}`).collection('appointment').get().then(querySnapshot => {
             const appointment = querySnapshot.docs.map(doc => doc.data());
-            console.log(appointment); 
+            // console.log(appointment); 
             
             const filterAppointmentClient = appointment.filter(appointment => appointment.clickDate === this.state.clickDate);
 
             this.setState({appointmentClient: filterAppointmentClient});
-            console.log(this.state);
+            // console.log(this.state);
         })
       
     }
@@ -44,7 +44,9 @@ class MasterP extends React.Component {
 
     changeHandlerTime  = (e) => {
         this.setState({clickTime: e.target.value},
-        () => {console.log(this.state)})
+        () => {
+            console.log(this.state)
+        })
     }
 
     handlerChange = ({target: {name, value}}) => {
@@ -55,7 +57,7 @@ class MasterP extends React.Component {
     cancellationOfRegistration = () => {
         this.setState({clickDate: '', clickTime: '', clientName: '', clientContact: ''},
         () => {
-            console.log(this.state)
+            // console.log(this.state)
         }) 
     }
 
@@ -112,6 +114,7 @@ class MasterP extends React.Component {
                                 (<ClientRegistration 
                                     appointmentClient={this.state.appointmentClient}
                                     clickDate={this.state.clickDate} 
+                                    changeHandlerTime={this.changeHandlerTime}
                                 />)
                             }
                         </div>
