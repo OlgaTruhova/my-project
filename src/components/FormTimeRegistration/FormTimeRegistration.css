@@ -11,7 +11,7 @@
     text-align: center;
 }
 
-.form-time-registration button {
+.form-time-registration__button, .form-time-registration-disable__button  {
     width: 70px;
     height: 30px;
     border: none;
@@ -24,10 +24,15 @@
     box-shadow: 4px 4px 5px rgba(0,0,0,0.8);
 }
 
-.form-time-registration button:hover {
+.form-time-registration__button:hover {
     background-color: #b43f85;
 }
 
-.form-time-registration button:active {
+.form-time-registration__button:active {
+    box-shadow: 4px 4px 5px rgba(0,0,0,0);
+}
+
+.form-time-registration-disable__button {
+    background-color: #686868;
     box-shadow: 4px 4px 5px rgba(0,0,0,0);
 }
