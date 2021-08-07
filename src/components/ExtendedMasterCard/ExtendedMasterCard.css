@@ -3,10 +3,8 @@
 }
 
 .extended-master-card {
-    /* border: 1px solid blue; */
     width: 100%;
     height: 100%;
-    /* background: rgba(43, 49, 70, 0.7); */
 }
 
 .extended-master-card__appointment div {
@@ -34,10 +32,6 @@
    width: 100%;
    display: block;
 }
-
-/* .extended-master-card__img img:hover {
-    cursor: pointer;
-} */
 
 .extended-master-card__text {
     width: 70%;

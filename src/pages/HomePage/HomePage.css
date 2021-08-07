@@ -8,7 +8,6 @@
 }
 
 .home-page__welcome {
-    /* border: 1px solid blueviolet; */
     color: #ffffff;
     width: 40%;
 }
@@ -27,8 +26,4 @@
 .home-page__welcome p {
     font-size: 20px;
     padding: 10px;
-}
-
-.home-page__login {
-    /* border: 1px solid red; */
 }

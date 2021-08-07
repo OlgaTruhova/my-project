@@ -8,6 +8,7 @@ import {RegistrationFormForTheMaster} from '../../components/RegistrationFormFor
 import ClientRegistration from '../../components/ClientRegistration/ClientRegistration';
 import buttonClose from '../../button-close.svg';
 import {firestore} from '../../firebase/firebase';
+import {deletingFirebaseAppointment} from '../../firebase/firebase';
 import './MasterPage.css';
 
 
@@ -18,7 +19,7 @@ class MasterP extends React.Component {
         clickTime: '',
         clientName: '',
         clientContact: '',
-        appointmentClient: []
+        appointmentClient: [],
     }
 
 
@@ -27,19 +28,15 @@ class MasterP extends React.Component {
         
         firestore.doc(`masters/${currentMaster.id}`).collection('appointment').get().then(querySnapshot => {
             const appointment = querySnapshot.docs.map(doc => doc.data());
-            // console.log(appointment); 
-            
             const filterAppointmentClient = appointment.filter(appointment => appointment.clickDate === this.state.clickDate);
-
             this.setState({appointmentClient: filterAppointmentClient});
-            // console.log(this.state);
-        })
-      
+        }) 
     }
 
     changeHandlerDate  = (date) => {
         this.setState({clickDate: date.toLocaleDateString("en-GB")},
         (this.appointmentClient))
+        this.setState({clickTime: ''})
     }
 
     changeHandlerTime  = (e) => {
@@ -74,9 +71,24 @@ class MasterP extends React.Component {
         }
     }
 
+    deletingAppointment = async (e) => {
+        const {currentMaster} = this.props;
+        const {clickDate} = this.state;
+        const time = await e.target.parentElement.value;   
+
+        try {
+            await deletingFirebaseAppointment({currentMaster, clickDate, time});
+            this.setState({clickDate: ''})
+        } catch (err) {
+            console.log(err);
+        }
+
+             
+    }
+
     render () {
         const {currentMaster} = this.props;
-        const {clickTime, clickDate} = this.state;
+        const {clickTime} = this.state;
 
         return (
 
@@ -85,8 +97,10 @@ class MasterP extends React.Component {
                 {currentMaster ? 
                     (<>
                         {currentMaster ? 
-                            (<div className='master-page__log-out' onClick={() => auth.signOut()}>
-                                <img src={buttonClose} alt='img' className='master-page__log-out_button-close' />
+                            (<div className='wrapper_master-page__log-out'>
+                                <div className='master-page__log-out' onClick={() => auth.signOut()}>
+                                    <img src={buttonClose} alt='img' className='master-page__log-out_button-close' />
+                                </div> 
                             </div>) : null
                         }
                         <div className='wrapper-extended-master-card'>
@@ -108,6 +122,8 @@ class MasterP extends React.Component {
                                         clientContact={this.state.clientContact}
                                         cancellationOfRegistration={this.cancellationOfRegistration}
                                         hendleSubmit={this.hendleSubmit}
+                                        data={this.state.data}
+                                        clickDate={this.state.clickDate}
                                     />
                                 </div> :
                                 
@@ -115,6 +131,7 @@ class MasterP extends React.Component {
                                     appointmentClient={this.state.appointmentClient}
                                     clickDate={this.state.clickDate} 
                                     changeHandlerTime={this.changeHandlerTime}
+                                    deletingAppointment={this.deletingAppointment}
                                 />)
                             }
                         </div>

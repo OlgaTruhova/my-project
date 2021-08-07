@@ -3,7 +3,7 @@ import buttonClose from '../../button-close.svg';
 
 import './ClientFormWithAppointment.css';
 
-export const ClientFormWithAppointment = ({appointmentClient, clickDate}) => {
+export const ClientFormWithAppointment = ({appointmentClient, clickDate, deletingAppointment}) => {
     return (
 
         clickDate ?
@@ -16,9 +16,9 @@ export const ClientFormWithAppointment = ({appointmentClient, clickDate}) => {
                             <div>{appointment.clientName}</div>
                             <div>{appointment.clientContact}</div>
                         </div> 
-                        <div className='deleting-appointment-client'>
+                        <button className='deleting-appointment-client' onClick={deletingAppointment} value={appointment.clickTime}>
                             <img src={buttonClose} alt='img' className='deleting-appointment-client_button' />
-                        </div>
+                        </button>
                     </div>
                 )
             })

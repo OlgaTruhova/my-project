@@ -5,11 +5,11 @@
     flex-wrap: wrap;
     justify-content: center;
     box-shadow: 6px -6px 5px rgba(0,0,0,0.8);
+    align-content: flex-start;
 }
 
 .wrapper-form {
     width: 50%;
-    /* border: 1px solid greenyellow; */
 }
 
 .master-page__log-out {
@@ -19,9 +19,7 @@
     overflow: hidden;
     background: #B11B75;
     padding: 10px;
-    position: absolute;
-    right: 5%;
-    margin: 20px;
+    margin: 20px 20px 0 0;
     box-shadow: 4px 4px 4px rgba(0,0,0,0.8);
     cursor: pointer;
 }
@@ -55,3 +53,10 @@
     width: 65%;
 }
 
+.wrapper_master-page__log-out {
+    width: 90%;
+    border: 1px solid red;
+    display: flex;
+    justify-content: flex-end;
+    /* position: absolute; */
+}

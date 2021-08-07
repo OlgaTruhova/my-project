@@ -1,5 +1,6 @@
 import React from 'react';
 import './ClientFormWithoutMakingAppointment.css';
+import '../ClientFormWithAppointment/ClientFormWithAppointment.css';
 
 
 export const ClientFormWithoutMakingAppointment = ({clickDate, time, changeHandlerTime}) => {

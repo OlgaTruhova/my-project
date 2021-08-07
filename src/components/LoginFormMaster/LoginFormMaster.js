@@ -1,7 +1,6 @@
 import React from 'react';
 import {FormInput} from '../FormInput/FormInput';
 import {auth} from '../../firebase/firebase';
-import { Link } from 'react-router-dom';
 import './LoginFormMaster.css';
 import '../../styleBtn.css';
 
@@ -18,10 +17,9 @@ export default class LoginFormMaster extends React.Component {
     }
 
     handlerSubmit = async (e) => {
-        e.preventDefault();
 
+        e.preventDefault();
         const {email, password} = this.state;
-        const {history} = this.props;
         
         try {
             await auth.signInWithEmailAndPassword(email, password);

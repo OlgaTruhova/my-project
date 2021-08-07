@@ -1,4 +1,4 @@
-.client-form-with-appointment {
+.client-form-with-appointment, .client-form-without-making-appointment {
     border: 10px solid #B11B75;
     background: rgba(43, 49, 70, 0.7);
     margin: 5px auto;
@@ -7,8 +7,7 @@
     align-items: center;
 }
 
-.information-client-appointment {
-    /* border: 1px solid yellow; */
+.information-client-appointment, .client-form-without-making-appointment {
     display: flex;
     flex-wrap: wrap;
     color: #ffffff;
@@ -18,6 +17,7 @@
     width: 25px;
     min-width: 25px;
     height: 25px;
+    border: none;
     border-radius: 10%;
     overflow: hidden;
     background: #B11B75;

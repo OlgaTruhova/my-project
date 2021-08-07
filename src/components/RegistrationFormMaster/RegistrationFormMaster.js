@@ -205,8 +205,7 @@ class RegistrationFormMaster extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    masters: state.masters.currentListOfMasters
-},
-()=>{console.log(state.masters.currentListOfMasters)});
+    masters: state.masters.currentListOfMasters}
+)
 
 export default connect(mapStateToProps)(RegistrationFormMaster);

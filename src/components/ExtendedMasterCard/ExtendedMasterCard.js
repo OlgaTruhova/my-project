@@ -1,7 +1,6 @@
 import React from 'react';
 import {CalendarReact} from '../CalendarReact/CalendarReact';
 import userImage from '../../user-png.png';
-import {auth} from '../../firebase/firebase';
 import './ExtendedMasterCard.css';
 
 export const ExtendedMasterCard = ({masterInfo, changeHandlerDate, changeHandlerTime, clickDate, appointmentClient}) => {
@@ -20,6 +19,7 @@ export const ExtendedMasterCard = ({masterInfo, changeHandlerDate, changeHandler
                     <div>{masterInfo.email}</div>
                 </div>
             </div>
+            
             <CalendarReact 
                 changeHandlerDate={changeHandlerDate} 
                 clickDate={clickDate} 

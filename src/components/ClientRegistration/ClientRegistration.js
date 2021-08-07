@@ -9,8 +9,10 @@ export default class ClientRegistration extends React.Component {
         timeAppointment: ['8.00', '10.00', '12.00', '15.00', '17.00'],
     }
 
+
+
     render () {
-        const {appointmentClient, clickDate, changeHandlerTime} = this.props;
+        const {appointmentClient, clickDate, changeHandlerTime, deletingAppointment} = this.props;
         const {timeAppointment} = this.state;
 
         const timeNoAppointment = (
@@ -22,7 +24,7 @@ export default class ClientRegistration extends React.Component {
         return (
             <div>
                 <div className='client-appointment'>
-                    <ClientFormWithAppointment appointmentClient={appointmentClient} clickDate={clickDate} />
+                    <ClientFormWithAppointment appointmentClient={appointmentClient} clickDate={clickDate} deletingAppointment={deletingAppointment} />
                     {
                         clickDate ? (
                             timeNoAppointment.map(time => {  

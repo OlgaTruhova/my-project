@@ -6,23 +6,12 @@
     text-align: center;
 }
 
-/* .wrapper-registration-form-master {
-    border: 2px solid rgb(13, 168, 240);
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-} */
-
 .form-master {
-    /* border: 2px solid rgb(240, 13, 153); */
     width: 100%;
     display: flex;
 }
 
 .form-master-address {
-    /* border: 1px solid red; */
     width: 100%;
 }
 
@@ -41,7 +30,6 @@
 }
 
 .services-master {
-    /* border: 1px solid rgb(13, 240, 32); */
     padding: 15px 0;
     display: flex;
     flex-wrap: wrap;

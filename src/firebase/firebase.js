@@ -47,8 +47,8 @@ export const createFirebaseMasterAppointment = async ({currentMaster, clickDate,
     if (userSnapShot.id === currentMaster.id) {
 
         try {
-            console.log(true);
-            await userRef.collection('appointment').add({clickDate, clickTime, clientName, clientContact})
+            const doc = await userRef.collection('appointment').doc();
+            await doc.set({key: doc.id, clickDate, clickTime, clientName, clientContact})
         } 
         catch (err) {
             console.log(err); //прописать ошибки
@@ -57,6 +57,26 @@ export const createFirebaseMasterAppointment = async ({currentMaster, clickDate,
 
     return userRef;
 };
+
+
+
+export const deletingFirebaseAppointment = ({currentMaster, clickDate, time}) => {
+    
+    if (!currentMaster.id) return;
+
+    firestore.doc(`masters/${currentMaster.id}`).collection('appointment').get().then(querySnapshot => {
+        const appointment = querySnapshot.docs.map(doc => doc.data());
+        console.log(appointment)
+
+        const filterAppointmentClient = appointment.filter(appointment => appointment.clickDate === clickDate);
+        console.log(filterAppointmentClient);
+
+        const filterTime = filterAppointmentClient.filter(appointment => appointment.clickTime === time);
+        console.log(filterTime)
+    
+        firestore.doc(`masters/${currentMaster.id}`).collection('appointment').doc(filterTime[0].key).delete();
+    })
+}
 
 
 export default firebase;

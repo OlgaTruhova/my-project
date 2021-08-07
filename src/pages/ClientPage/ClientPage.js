@@ -19,13 +19,12 @@ export default class ClientPage extends React.Component {
     }
 
     clickMaster = (e) => {
-
         const masters = store.getState().masters.currentListOfMasters; 
 
         masters.forEach((master) => {
             if (master.email === e.target.value) {
-                this.setState({masterTarget: master},
-                () => {})
+                this.setState({masterTarget: master})
+                this.setState({clickDate: '', clickTime: ''})
             }
         })  
     }
@@ -37,7 +36,7 @@ export default class ClientPage extends React.Component {
             const appointment = querySnapshot.docs.map(doc => doc.data());
             console.log(appointment); 
             
-            const filterAppointmentClient = appointment.filter(appointment => appointment.clickDate === this.state.clickDate).sort((a,b) => b-a)
+            const filterAppointmentClient = appointment.filter(appointment => appointment.clickDate === this.state.clickDate)
 
             this.setState({appointmentClient: filterAppointmentClient});
             console.log(this.state);
