@@ -38,3 +38,23 @@
     font-size: 18px;
     margin: 2px;
 }
+
+@media screen and (max-width: 1300px) {
+
+    .style-btn, .style-btn-reg {
+        width: calc(80px + (120 - 80) * ((100vw - 320px) / (1300 - 320)));
+        height: calc(30px + (45 - 30) * ((100vw - 320px) / (1300 - 320)));
+        font-size: calc(14px + (25 - 14) * ((100vw - 320px) / (1300 - 320)));
+        margin-top: calc(10px + (20 - 10) * ((100vw - 320px) / (1300 - 320)));
+        margin-bottom: calc(15px + (40 - 15) * ((100vw - 320px) / (1300 - 320)));
+    }
+
+    .style-btn-reg {
+        width: calc(200px + (270 - 200) * ((100vw - 320px) / (1300 - 320)));
+    }
+
+    .cearch-form__btn {
+        width: calc(80px + (100 - 80) * ((100vw - 320px) / (1300 - 320)));
+        font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1300 - 320)));
+    }
+}

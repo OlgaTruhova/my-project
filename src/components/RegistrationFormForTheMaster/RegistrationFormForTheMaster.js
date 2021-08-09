@@ -2,10 +2,9 @@ import React from 'react';
 import {FormInput} from '../../components/FormInput/FormInput';
 import './RegistrationFormForTheMaster.css';
 
-export const RegistrationFormForTheMaster = ({handlerChange, clientName, clientContact, cancellationOfRegistration, hendleSubmit, data, clickDate}) => {
+export const RegistrationFormForTheMaster = ({handlerChange, clientName, clientContact, cancellationOfRegistration, hendleSubmit}) => {
 
     return (
-        // clickDate === data ? 
         <form className='registr-form-for-the-master'>
             <h1 className='registr-form-for-the-master__text'>Введите данные</h1>
             <FormInput 

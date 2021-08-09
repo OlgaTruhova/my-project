@@ -8,11 +8,17 @@
 .App {
   background: url(./Backgrounds_Purple_texture.jpg) top / cover no-repeat;
   height: 100vh;
-  padding-top: 2%;
+  padding-top: 1.5%;
 }
 
 .App-wrapper {
   max-width: 1400px;
   height: 90vh;
   margin: 0 auto;
+}
+
+.error {
+  width: 50%;
+  margin-top: 10%;
+  margin-left: 5%;
 }

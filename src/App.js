@@ -4,6 +4,7 @@ import {Header} from './Header/Header';
 import {HomePage} from './pages/HomePage/HomePage';
 import {MasterPage} from './pages/MasterPage/MasterPage';
 import ClientPage from './pages/ClientPage/ClientPage';
+import {NotFound} from './pages/NotFound/NotFound';
 import { auth, createFirebaseMaster } from './firebase/firebase';
 import './App.css';
 
@@ -13,7 +14,7 @@ export default class App extends React.Component {
     state = {
         currentMaster: null,
         currentDate: new Date,
-        currentHours: 1,
+        currentHours: 0,
         currentGreeting: 'Здравствуйте!'
     };
 
@@ -88,6 +89,7 @@ export default class App extends React.Component {
                         <Route path='/formaster' exact>
                             <MasterPage currentMaster={this.state.currentMaster} />
                         </Route> 
+                        <Route path='*' component={NotFound} />
                     </Switch>
                 </div>
             </div>

@@ -11,6 +11,7 @@
 
 .registr-form-for-the-master {
     width: 70%;
+    min-width: 280px;
     margin: 0 auto;
     text-align: center;
     border: 13px solid rgba(0, 0, 0, 0.3);
@@ -32,4 +33,12 @@
 .registr-form-for-the-master button {
     margin: 20px 10px;
     font-size: 20px;
+}
+
+
+@media screen and (max-width: 1300px) {
+
+    .registr-form-for-the-master button {
+        font-size: calc(14px + (20 - 14) * ((100vw - 320px) / (1300 - 320)));
+    }
 }

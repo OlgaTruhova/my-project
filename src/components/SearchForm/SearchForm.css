@@ -16,6 +16,7 @@
 
 .cearch-form__input{
     width: 70%;
+    min-width: 200px;
     height: 35px;
     margin: 2px;
 }

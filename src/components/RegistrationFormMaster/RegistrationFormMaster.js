@@ -3,10 +3,10 @@ import {FormInput} from '../FormInput/FormInput';
 import {FormInputServices} from '../FormInputServices/FormInputServices';
 import {auth, createFirebaseMaster} from '../../firebase/firebase';
 import {firestore} from '../../firebase/firebase';
-import './RegistrationFormMaster.css';
 import { connect } from 'react-redux';
 import store from '../../redux/store';
-import {setCurrentListOfMasters} from '../../redux/actions'
+import {setCurrentListOfMasters} from '../../redux/actions';
+import './RegistrationFormMaster.css'
 
 class RegistrationFormMaster extends React.Component {
 
@@ -21,7 +21,7 @@ class RegistrationFormMaster extends React.Component {
             tel: '',
             email: '',
             address: '',
-            services: [], // при пустом массиве сделать выпадающее окно, что надо выбрать хоть одну услугу!
+            services: []
         }
     }
 
@@ -81,7 +81,6 @@ class RegistrationFormMaster extends React.Component {
                 store.dispatch(setCurrentListOfMasters(masters));
             })
 
-
         } catch (err) {
             console.log(err);
             if (err.code === 'auth/weak-password') {
@@ -140,7 +139,6 @@ class RegistrationFormMaster extends React.Component {
                             type='tel' 
                             name='tel' 
                             label='Мобильный телефон' 
-                            // pattern='+375([0-9]{2})[0-9]{3}-[0-9]{2}-[0-9]{2}' 
                             placeholder='+375(00)-000-00-00' 
                             value={tel}
                             required 

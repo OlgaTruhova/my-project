@@ -10,6 +10,7 @@
 .home-page__welcome {
     color: #ffffff;
     width: 40%;
+    min-width: 300px;
 }
 
 .home-page__welcome h1, .home-page__welcome h2 {
@@ -26,4 +27,32 @@
 .home-page__welcome p {
     font-size: 20px;
     padding: 10px;
+}
+
+@media screen and (max-width: 710px) {
+    .home-page {
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+
+    .home-page {
+        padding-top: 0px;
+        align-content: flex-start;
+    }
+
+    .home-page__welcome h1 {
+        font-size: calc(30px + (45 - 30) * ((100vw - 320px) / (1300 - 320)));
+    }
+
+    .home-page__welcome h2 {
+        font-size: calc(20px + (30 - 20) * ((100vw - 320px) / (1300 - 320)));
+        padding-bottom: calc(10px + (30 - 10) * ((100vw - 320px) / (1300 - 320)));
+    }
+
+    .home-page__welcome p {
+        font-size: calc(15px + (20 - 15) * ((100vw - 320px) / (1300 - 320)));
+        padding: calc(3px + (10 - 3) * ((100vw - 320px) / (1300 - 320)));
+    }
 }

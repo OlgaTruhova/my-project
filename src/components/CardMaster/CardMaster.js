@@ -1,7 +1,6 @@
 import React from 'react';
 import './CardMaster.css';
 
-
 export const CardMaster = ({firstname, lastname, tel, services, address, email, clickMaster}) => {
 
     return (

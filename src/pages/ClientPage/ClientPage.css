@@ -4,8 +4,17 @@
     display: flex;
     justify-content: center;
     box-shadow: 6px -6px 5px rgba(0,0,0,0.8);
+    padding-top: 10px;
 }
 
 .client-page__extended-master-card {
     width: 50%;
+}
+
+
+@media screen and (max-width: 710px) {
+    .client-page {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
 }

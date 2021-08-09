@@ -1,11 +1,10 @@
 import React from 'react';
 import buttonClose from '../../button-close.svg';
-
 import './ClientFormWithAppointment.css';
 
 export const ClientFormWithAppointment = ({appointmentClient, clickDate, deletingAppointment}) => {
-    return (
 
+    return (
         clickDate ?
             appointmentClient.map(appointment => {
                 return (
@@ -16,7 +15,8 @@ export const ClientFormWithAppointment = ({appointmentClient, clickDate, deletin
                             <div>{appointment.clientName}</div>
                             <div>{appointment.clientContact}</div>
                         </div> 
-                        <button className='deleting-appointment-client' onClick={deletingAppointment} value={appointment.clickTime}>
+                        <button className='deleting-appointment-client' onClick={deletingAppointment} 
+                        value={appointment.clickTime}>
                             <img src={buttonClose} alt='img' className='deleting-appointment-client_button' />
                         </button>
                     </div>

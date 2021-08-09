@@ -34,12 +34,10 @@ export default class ClientPage extends React.Component {
         
         firestore.doc(`masters/${masterTarget.id}`).collection('appointment').get().then(querySnapshot => {
             const appointment = querySnapshot.docs.map(doc => doc.data());
-            console.log(appointment); 
             
             const filterAppointmentClient = appointment.filter(appointment => appointment.clickDate === this.state.clickDate)
 
             this.setState({appointmentClient: filterAppointmentClient});
-            console.log(this.state);
         })
     }
 
@@ -76,7 +74,6 @@ export default class ClientPage extends React.Component {
             console.log(err);
         }
     }
-
 
     render () {
         

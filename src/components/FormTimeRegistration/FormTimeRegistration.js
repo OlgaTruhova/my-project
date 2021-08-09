@@ -14,7 +14,6 @@ export default class FormTimeRegistration extends React.Component {
         })
     }
  
-
     render () {
         const {changeHandlerTime, appointmentClient} = this.props;
         const {timeButton} = this.state;
@@ -26,6 +25,7 @@ export default class FormTimeRegistration extends React.Component {
                 <div className='form-time-registration'>
                     {timeButton.map(time => 
                     <button className={!timeNoAppointment.some(time1 => time1 === time) ? 'form-time-registration-disable__button' : 'form-time-registration__button'} 
+
                     value={time} key={`key${time}`} disabled={!timeNoAppointment.some(time1 => time1 === time)} 
                     onClick={changeHandlerTime}>{time}</button>)}
                 </div>

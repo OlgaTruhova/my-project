@@ -1,6 +1,7 @@
 .wrapper-form-registration {
     width: 90%;
-    margin: 1% auto;
+    min-width: 340px;
+    margin: 2% auto;
     border: 13px solid rgba(0, 0, 0, 0.3);
     background: rgba(43, 49, 70, 0.7);
     text-align: center;
@@ -33,4 +34,10 @@
     padding: 15px 0;
     display: flex;
     flex-wrap: wrap;
+}
+
+@media screen and (max-width: 1000px) {
+    .form-master {
+        flex-wrap: wrap;
+    }
 }

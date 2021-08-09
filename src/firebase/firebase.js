@@ -30,7 +30,7 @@ export const createFirebaseMaster = async (master, payload = {}) => {
         try {
             await userRef.set({id: master.uid, ...payload})
         } catch (err) {
-            console.log(err); //прописать ошибки
+            console.log(err);
         }
     } 
 
@@ -51,7 +51,7 @@ export const createFirebaseMasterAppointment = async ({currentMaster, clickDate,
             await doc.set({key: doc.id, clickDate, clickTime, clientName, clientContact})
         } 
         catch (err) {
-            console.log(err); //прописать ошибки
+            console.log(err); 
         }
     } 
 
@@ -64,19 +64,23 @@ export const deletingFirebaseAppointment = ({currentMaster, clickDate, time}) =>
     
     if (!currentMaster.id) return;
 
-    firestore.doc(`masters/${currentMaster.id}`).collection('appointment').get().then(querySnapshot => {
-        const appointment = querySnapshot.docs.map(doc => doc.data());
-        console.log(appointment)
+    firestore.doc(`masters/${currentMaster.id}`).collection('appointment').get().then(async querySnapshot => {
+        const appointment = await querySnapshot.docs.map(doc => doc.data());
 
-        const filterAppointmentClient = appointment.filter(appointment => appointment.clickDate === clickDate);
-        console.log(filterAppointmentClient);
+        const filterAppointmentClient = await appointment.filter(appointment => appointment.clickDate === clickDate);
 
-        const filterTime = filterAppointmentClient.filter(appointment => appointment.clickTime === time);
-        console.log(filterTime)
-    
-        firestore.doc(`masters/${currentMaster.id}`).collection('appointment').doc(filterTime[0].key).delete();
-    })
+        const filterTime = await filterAppointmentClient.filter(appointment => appointment.clickTime === time);
+
+        try {
+            await firestore.doc(`masters/${currentMaster.id}`).collection('appointment').doc(filterTime[0].key).delete();
+        } 
+        catch (err) {
+            if(err === 'Cannot read property "key" of undefined') {
+                alert('Вашу запись удалить не удалось. Попробуйте еще раз.')
+            }
+        }
+    });
+
 }
-
 
 export default firebase;

@@ -9,6 +9,7 @@
     width: 90px;
     text-align: center;
     padding: 11px;
+    padding-bottom: 11px;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
 }
@@ -40,4 +41,13 @@
 .active {
     background-color: #B11B75;
     box-shadow: 6px -6px 5px rgba(0,0,0,0.8);
+}
+
+@media screen and (max-width: 1300px) {
+
+
+
+    /* .wrapper-form-login h1 {
+        font-size: calc(30px + (40 - 30) * ((100vw - 320px) / (1300 - 320)));
+    } */
 }

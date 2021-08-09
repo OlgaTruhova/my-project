@@ -53,9 +53,7 @@ class MasterP extends React.Component {
     
     cancellationOfRegistration = () => {
         this.setState({clickDate: '', clickTime: '', clientName: '', clientContact: ''},
-        () => {
-            // console.log(this.state)
-        }) 
+        () => {}) 
     }
 
     hendleSubmit = async () => {
@@ -81,9 +79,7 @@ class MasterP extends React.Component {
             this.setState({clickDate: ''})
         } catch (err) {
             console.log(err);
-        }
-
-             
+        }   
     }
 
     render () {

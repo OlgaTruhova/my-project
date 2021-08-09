@@ -27,9 +27,7 @@ export default class ListOfMasters extends React.Component {
                 Object.values(master).join(', ').toLowerCase().includes(this.state.cearchData)
             )
             this.setState({mastersFilter: mastersFilter});
-        },
-            () => {}  
-        ) 
+        },() => {}) 
     }
 
     componentDidMount () {

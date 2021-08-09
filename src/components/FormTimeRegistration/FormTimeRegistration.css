@@ -19,7 +19,7 @@
     font-size: 15px;
     background-color: #B11B75;
     color: white;
-    margin: 20px 10px;
+    margin: 17px 10px;
     cursor: pointer;
     box-shadow: 4px 4px 5px rgba(0,0,0,0.8);
 }
@@ -28,11 +28,19 @@
     background-color: #b43f85;
 }
 
-.form-time-registration__button:active {
+.form-time-registration__button:active,
+.form-time-registration-disable__button {
     box-shadow: 4px 4px 5px rgba(0,0,0,0);
 }
 
 .form-time-registration-disable__button {
     background-color: #686868;
-    box-shadow: 4px 4px 5px rgba(0,0,0,0);
+}
+
+@media screen and (max-width: 1200px) {
+
+    .form-time-registration__button, .form-time-registration-disable__button {
+        margin: calc(10px + (17 - 10) * ((100vw - 320px) / (1300 - 320)));
+        margin: calc(5px + (10 - 5) * ((100vw - 320px) / (1300 - 320)));
+    }
 }

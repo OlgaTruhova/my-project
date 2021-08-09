@@ -1,5 +1,6 @@
 .wrapper-form-login {
     width: 80%;
+    min-width: 250px;
     margin: 10% auto;
     display: flex;
     flex-wrap: wrap;
@@ -8,7 +9,6 @@
     border: 13px solid rgba(0, 0, 0, 0.3);
     background: rgba(43, 49, 70, 0.7);
     text-align: center;
-
 }
   
 .wrapper-form-login h1 {
@@ -20,4 +20,19 @@
 
 .wrapper-form-login input {
     margin: 20px auto;
+}
+
+@media screen and (max-width: 1300px) {
+
+    .wrapper-form-login {
+        margin: calc(5% + (10 - 5) * ((100vw - 320px) / (1300 - 320)));
+    }
+
+    .wrapper-form-login h1 {
+        font-size: calc(30px + (40 - 30) * ((100vw - 320px) / (1300 - 320)));
+    }
+
+    .wrapper-form-login input {
+        margin: calc(10px + (20 - 10) * ((100vw - 320px) / (1300 - 320))) auto;
+    }
 }
