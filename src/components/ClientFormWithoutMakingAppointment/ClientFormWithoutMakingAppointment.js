@@ -7,7 +7,7 @@ export const ClientFormWithoutMakingAppointment = ({clickDate, time, changeHandl
 
     return (
         <div className='client-form-without-making-appointment'>
-            <div className='information-client-appointment'>
+            <div className='information-client-appointment' key={`noAppoint${clickDate}${time}`}>
                 <div>{clickDate}</div>
                 <div>{time}</div>
             </div>

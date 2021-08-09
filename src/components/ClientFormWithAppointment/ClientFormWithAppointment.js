@@ -9,7 +9,7 @@ export const ClientFormWithAppointment = ({appointmentClient, clickDate, deletin
             appointmentClient.map(appointment => {
                 return (
                     <div className='client-form-with-appointment'>
-                        <div className='information-client-appointment'>
+                        <div className='information-client-appointment' id={`isAppoint${appointment.clickDate}${appointment.clickTime}`}>
                             <div>{appointment.clickDate}</div>
                             <div>{appointment.clickTime}</div>
                             <div>{appointment.clientName}</div>

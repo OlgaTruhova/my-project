@@ -39,13 +39,14 @@ class RegistrationFormMaster extends React.Component {
 
     creatingListOfServices = (e) => {
         let servicesOfMaster = [...this.state.services];
-        let res = servicesOfMaster.find(servis => servis === e.target.value);
+        let res = servicesOfMaster.find(servis => servis === `${e.target.value}. `);
+
         if (e.target.checked === true) {
             if (res === undefined) {
                 servicesOfMaster.push(`${e.target.value}. `);
             }
         } else {
-            if (res === e.target.value) {
+            if (res === `${e.target.value}. `) {
                 servicesOfMaster.forEach((servis, i) => {
                     if (servis === res){
                         servicesOfMaster.splice(i, 1);
@@ -53,7 +54,6 @@ class RegistrationFormMaster extends React.Component {
                 })
             }
         }
-
         this.changeHandlerServis('services', [...servicesOfMaster]);
     }
 

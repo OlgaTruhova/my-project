@@ -13,7 +13,7 @@ export default class App extends React.Component {
     
     state = {
         currentMaster: null,
-        currentDate: new Date,
+        currentDate: new Date(),
         currentHours: 0,
         currentGreeting: 'Здравствуйте!'
     };

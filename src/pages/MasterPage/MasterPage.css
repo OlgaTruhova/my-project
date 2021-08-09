@@ -2,8 +2,8 @@
     border: 10px solid rgb(177, 27, 117);
     height: 84vh;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
+    flex-wrap: wrap;
     box-shadow: 6px -6px 5px rgba(0,0,0,0.8);
     align-content: flex-start;
 }
@@ -62,7 +62,7 @@
     justify-content: flex-end;
 }
 
-@media screen and (max-width: 710px) {
+@media screen and (max-width: 950px) {
     .master-page {
         justify-content: flex-start;
         flex-wrap: wrap;

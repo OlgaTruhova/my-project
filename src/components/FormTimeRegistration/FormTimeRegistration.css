@@ -40,7 +40,7 @@
 @media screen and (max-width: 1200px) {
 
     .form-time-registration__button, .form-time-registration-disable__button {
-        margin: calc(10px + (17 - 10) * ((100vw - 320px) / (1300 - 320)));
-        margin: calc(5px + (10 - 5) * ((100vw - 320px) / (1300 - 320)));
+        margin: calc(10px + (17 - 10) * ((100vw - 320px) / (1200 - 320)));
+        margin: calc(5px + (10 - 5) * ((100vw - 320px) / (1200 - 320)));
     }
 }
